@@ -6,9 +6,7 @@ import "./main.css";
 class Main extends Component {
 
   hasChildren = (comment) => {
-    /**
-     * Sure there's a better way to do this which is to use lodash get
-     */
+    /* Sure there's a better way to do this which is to use lodash get */
     return comment.replies 
       && comment.replies.data 
       && comment.replies.data.children 
@@ -18,9 +16,7 @@ class Main extends Component {
   hasNoChildren = (comment) => !this.hasChildren(comment)
 
   renderComment = (comment) => {
-    /**
-     * If comment has no children
-     */
+    /* If comment has no children */
     if (this.hasNoChildren(comment)) {
       return (
         <div key={comment.id} className="comment">
@@ -29,9 +25,7 @@ class Main extends Component {
       )
     }
 
-    /**
-     * Comment has children
-     */
+    /* Comment has children */
     const children = comment.replies.data.children.map((c) => {
       return this.renderComment(c.data)
     });
